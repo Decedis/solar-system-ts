@@ -3,7 +3,21 @@
 // Return example: 1902
 // Hint: use a Map data structure instead of an object if you want typescript to be happy
 
-export function getGreatestDiscoveryYear(asteroids) {}
+import { Asteroid } from "../data/data";
+
+export function getGreatestDiscoveryYear(asteroids: Asteroid[]) {
+  /*
+    1. Temporary array of objects: {year, incidence}
+    2. if asteroid.year === arr.year, then increase incidence
+    3. return value with highest incidence 
+    */
+  type TGreatestYear = {
+    year: number;
+    incidence: number;
+  };
+  const greatestYear: { r }[] = [];
+  asteroids.map((asteroid) => {});
+}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-16"
