@@ -4,19 +4,29 @@
 // Hint: use a Map data structure instead of an object if you want typescript to be happy
 
 import { Asteroid } from "../data/data";
+import { maxBy } from "./e17";
 
 export function getGreatestDiscoveryYear(asteroids: Asteroid[]) {
-  /*
-    1. Temporary array of objects: {year, incidence}
-    2. if asteroid.year === arr.year, then increase incidence
-    3. return value with highest incidence 
-    */
-  type TGreatestYear = {
-    year: number;
-    incidence: number;
-  };
-  const greatestYear: { r }[] = [];
-  asteroids.map((asteroid) => {});
+  let counter = 1;
+  const yearData: number[] = [];
+  const greatestDiscoveryYear: { year: number; count: number }[] = [];
+
+  asteroids.map((asteroid) => yearData.push(asteroid.discoveryYear));
+  yearData.sort();
+  for (let i = 0; i < yearData.length; i++) {
+    if (yearData[i] === yearData[i + 1]) {
+      counter++;
+    } else if (yearData[i] !== yearData[i + 1]) {
+      greatestDiscoveryYear.push({
+        year: yearData[i]!,
+        count: counter,
+      });
+      counter = 1;
+    }
+  }
+
+  let greatestYear = maxBy(greatestDiscoveryYear, (year) => year.count);
+  return greatestYear?.year;
 }
 
 // === TEST YOURSELF ===
