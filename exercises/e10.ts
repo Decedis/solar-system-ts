@@ -11,11 +11,7 @@ export function getAsteroidDataByName({
   allData: AllData;
   asteroidName: string;
 }) {
-  const result = allData.asteroids.filter(
-    (asteroid) => asteroid.name === asteroidName
-  );
-
-  return result[0];
+  return allData.asteroids.find((asteroid) => asteroid.name === asteroidName);
 }
 
 // === TEST YOURSELF ===

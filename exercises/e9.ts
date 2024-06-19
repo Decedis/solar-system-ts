@@ -2,11 +2,10 @@
 // Return the data object of the planet "Earth"
 // Return example: { key1: value1, key2: value2, ... , keyN: valueN }
 
-import { AllData, Planet } from "../data/data";
+import { AllData } from "../data/data";
 
 export let findEarthData = (data: AllData) => {
-  const result = data.planets.filter((planet) => planet.name === "Earth");
-  return result[0];
+  return data.planets.find((planet) => planet.name === "Earth");
 };
 
 // === TEST YOURSELF ===

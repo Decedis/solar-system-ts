@@ -13,12 +13,9 @@ export function findPlanetByMoon({
 }) {
   const formattedMoonName =
     moonName.charAt(0).toUpperCase() + moonName.slice(1);
-  const result = planets
-    .filter((p) => p.moons)
-    .filter((p) => p.moons.includes(formattedMoonName));
-  console.log("result: ", result[0]);
-
-  return result[0];
+  return planets.find(
+    (planet) => planet.moons && planet.moons?.includes(formattedMoonName)
+  );
 }
 
 // === TEST YOURSELF ===

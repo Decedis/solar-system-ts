@@ -5,15 +5,10 @@
 import { AllData } from "../data/data";
 
 export function getAveragePlanetsTemperature(data: AllData) {
-  const tempArr: number[] = [];
-  let sum = 0;
-  data.planets.map((planet) => tempArr.push(planet.avgTemp));
-  tempArr.forEach((temp) => {
-    temp ? (sum += temp) : null;
-  });
-  let avg = sum / tempArr.length;
-  console.log("avg: ", avg);
-  return avg;
+  return (
+    data.planets.reduce((acc, planet) => acc + (planet.avgTemp || 0), 0) /
+    data.planets.length
+  );
 }
 
 // === TEST YOURSELF ===

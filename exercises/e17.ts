@@ -1,4 +1,4 @@
-export const minBy = <T>(array: T[], cb: (input: T) => T) => {
+export const minBy = <T>(array: T[], cb: (input: T) => string | number) => {
   if (array.length > 0) {
     let min = array[0];
     for (const item of array) {
@@ -12,7 +12,7 @@ export const minBy = <T>(array: T[], cb: (input: T) => T) => {
   }
 };
 
-export function maxBy<T>(array: T[], cb: (input: T) => number) {
+export function maxBy<T>(array: T[], cb: (input: T) => string | number) {
   if (array.length > 0) {
     let max = array[0];
     for (const item of array) {

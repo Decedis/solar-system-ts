@@ -5,10 +5,10 @@
 import { Asteroid } from "../data/data";
 
 export function getOrbitalPeriodsSum(asteroids: Asteroid[]) {
-  let sum: number = 0;
-  asteroids.map((asteroid) => (sum += asteroid.orbitalPeriod));
-
-  return sum;
+  return asteroids.reduce(
+    (acc, asteroid) => acc + (asteroid.orbitalPeriod || 0),
+    0
+  );
 }
 
 // === TEST YOURSELF ===
